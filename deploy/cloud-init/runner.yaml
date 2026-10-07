@@ -1,0 +1,36 @@
+#cloud-config
+# Runner VM bootstrap: Docker (for the OpenTofu runner container), Python + the
+# OCI/oracledb SDKs (for backend/api.py under instance principals), and git.
+# App code is deployed after boot — see deploy/README.md.
+package_update: true
+
+yum_repos:
+  docker-ce:
+    name: Docker CE
+    baseurl: https://download.docker.com/linux/centos/8/$basearch/stable
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://download.docker.com/linux/centos/gpg
+
+packages:
+  - git
+  - python3.11
+  - python3.11-pip
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+
+runcmd:
+  # Open the host firewall only for SSH; app ports stay tunneled.
+  - systemctl enable --now docker
+  - usermod -aG docker opc
+  # Python deps for the backend (instance-principal auth, ATP, codegen).
+  - python3.11 -m pip install --upgrade pip
+  - python3.11 -m pip install oci oracledb fastapi "uvicorn[standard]" jinja2
+  # Pre-pull the runner image so first plan is fast.
+  - docker pull ghcr.io/opentofu/opentofu:1.12 || true
+  - mkdir -p /opt/kladen /etc/kladen
+  - chown -R opc:opc /opt/kladen /etc/kladen
+  - echo "kladen runner ready" > /etc/kladen/READY
+
+final_message: "Kladen runner bootstrap complete after $UPTIME seconds"

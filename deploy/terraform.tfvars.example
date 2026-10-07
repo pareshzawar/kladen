@@ -1,0 +1,29 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is gitignored.
+
+# --- Your bootstrap OCI identity (same values as ~/.oci/config DEFAULT) ---
+tenancy_ocid     = "ocid1.tenancy.oc1..aaaa..."
+user_ocid        = "ocid1.user.oc1..aaaa..."
+fingerprint      = "aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99"
+private_key_path = "~/.oci/oci_api_key.pem"
+region           = "ap-hyderabad-1"
+
+# Where to build the platform. Tenancy root works; a dedicated compartment is cleaner.
+compartment_ocid = "ocid1.compartment.oc1..aaaa..."
+
+# --- Autonomous DB ---
+# 12-30 chars, at least one upper, one lower, one digit; no double-quote; not "admin".
+adb_admin_password = "Change_Me_123456"
+adb_db_name        = "kladendb"
+
+# --- Runner VM ---
+# A1.Flex is the most capable free shape but capacity-constrained in some regions;
+# fall back to VM.Standard.E2.1.Micro (set vm_ocpus/vm_memory_gbs are ignored then).
+vm_shape         = "VM.Standard.A1.Flex"
+vm_ocpus         = 1
+vm_memory_gbs    = 6
+ssh_public_key   = "ssh-rsa AAAA... you@host"
+ssh_ingress_cidr = "0.0.0.0/0" # narrow to <your-ip>/32 in production
+
+# --- Object Storage (defaults are fine) ---
+# artifacts_bucket_name = "kladen-artifacts"
+# state_bucket_name     = "kladen-tofu-state"

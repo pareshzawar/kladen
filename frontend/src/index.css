@@ -1,0 +1,45 @@
+/* Global styles: loads Tailwind, declares the three font families used
+   everywhere (font-sans / font-mono / font-display utilities), and styles
+   the scrollbars. Component-level styling is Tailwind classes inline. */
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: Poppins, sans-serif;
+}
+
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid #0fa79e;
+    outline-offset: 2px;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f5f8fb;
+}
+
+a {
+  color: #0fa79e;
+  text-decoration: none;
+}
+a:hover {
+  color: #0c8c85;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c6d2df;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
