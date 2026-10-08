@@ -60,7 +60,7 @@ template in `app.py`.
 The loop, price estimator, Secure leg and first Monitor features are built (see
 `docs/STATUS.md`). The project is now going public as open source (ADR-0016). In order:
 1. **Make it runnable by a stranger.** A clean clone + README must reach a working loop.
-   Anything that only works on the founder's machine is a bug.
+   Anything that only works on the maintainer's machine is a bug.
 2. **Make it safe to run.** The spike shortcuts (ADR-0006) and seeded demo accounts must
    be clearly labelled, and hardened before anyone is told to deploy it on a network.
 3. **Verify the full remote loop** (GUI → VM runner → ATP + bucket) — STATUS 🔨.
@@ -73,8 +73,8 @@ one-way projection; ADR-0009).
 ## Guardrails for you, the agent
 - Flag over-engineering, scope creep, premature optimization directly.
 - Prefer boring, inspectable code. Correctness over cleverness.
-- **Always comment the code.** Readers include the founder (not a full-time coder) and
-  outside contributors. Every function gets a short docstring/comment saying what it does
+- **Always comment the code.** Readers include the maintainer and outside
+  contributors, not all of them full-time developers. Every function gets a short docstring/comment saying what it does
   and why; comment any non-obvious line, data shape, or control flow. Favour clear names
   over clever one-liners. Comments explain intent, not just restate the code.
 - Don't add abstraction for services/flows not yet built.
