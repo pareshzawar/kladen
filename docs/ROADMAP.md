@@ -79,5 +79,4 @@ to the security-minded teams this is built for.
   baked into every stateful module by default. Position as "hard to delete", never "we can
   undo it".
 - Naming: `prov0` evaluated and rejected — digit is a dictation failure, collides with v0.dev,
-  and names only the provisioning leg of a provision/secure/monitor product. `Kladen` retained
-  pending a trademark search in classes 9/42 — now due before the public announcement.
+  and names only the provisioning leg of a provision/secure/monitor product. `Kladen` retained.

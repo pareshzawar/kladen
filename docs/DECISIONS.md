@@ -94,17 +94,17 @@ Format: ID · date · status · context · decision · consequences · revisit-w
 
 ## ADR-0008 · RADAR is the Phase-3 expiry/rotation-hygiene module, not a separate product
 - **Date:** 2026-07-21 · **Status:** accepted (supersedes the earlier "separate track" read)
-- **Context:** RADAR was first framed as a Fusion-Apps GRC product (different stack/buyer,
-  employer-IP concern). Clarified: it's cross-source expiry + rotation monitoring —
+- **Context:** RADAR was first framed as a separate Fusion-Apps GRC product (different
+  stack and buyer). Clarified: it's cross-source expiry + rotation monitoring —
   password policy/expiry, API-key rotation, certificate expiry — plus surfacing OCI's
   native alerts on the dashboard.
 - **Decision:** RADAR is the "monitor" leg of the one product, shipped as a later Phase-3
   release. Not a separate company. It needs no new architecture: an expiry is a finding
   (findings-model seam), reading OCI alerts is read-plane (read-plane seam).
 - **Consequences:** Can be named on the roadmap and sold as "coming." Feasible via OCI
-  Events / Monitoring / Certificates / Vault (verify exact signals when built). Legal check
-  applies only if a specific monitored source is employer-domain.
-- **Revisit-when:** when Phase 3 starts, or if a monitored source raises a moonlighting/IP
+  Events / Monitoring / Certificates / Vault (verify exact signals when built). Each new
+  monitored source gets a licence and IP check before it is added.
+- **Revisit-when:** when Phase 3 starts, or if a monitored source raises a licensing or IP
   question.
 
 ## ADR-0009 · One canvas engine (React Flow); no OKIT / draw.io as editable boards
@@ -379,8 +379,8 @@ blocking rule is the Observed-to-Managed clean-plan gate above.
 - **Date:** 2026-10-07 · **Status:** accepted
 - **Context:** The loop, price estimator, Secure leg (findings, CIS, Cloud Guard, RBAC
   isolation) and first Monitor features (drift, posture report) are built. Until now the
-  build was held as a private de-risking spike gated on buyer validation. The founder has
-  chosen to publish it instead: as an open-source project and a public portfolio piece,
+  build was held as a private de-risking spike gated on buyer validation. The maintainer
+  chose to publish it instead: as an open-source project and a public portfolio piece,
   with some features possibly becoming a paid tier later.
 - **Decision:** Publish the repo under **AGPL-3.0-only**. AGPL over Apache/MIT because
   Kladen is a hosted-style web platform: anyone running a modified copy as a service must
