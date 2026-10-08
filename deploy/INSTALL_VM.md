@@ -66,10 +66,10 @@ python3.11 -m pip install --user -r backend/requirements.txt
 
 ## Step 2 — upload the ATP wallet
 
-From **your laptop** (the wallet is secret — never commit it):
+From **your laptop**, in the root of your Kladen checkout (the wallet is secret — never commit it):
 
 ```sh
-scp -r /Users/paresh/Downloads/kladen/deploy/wallet opc@<runner_public_ip>:/etc/kladen/wallet
+scp -r deploy/wallet opc@<runner_public_ip>:/etc/kladen/wallet
 ```
 
 On the VM, lock it down:
