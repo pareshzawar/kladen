@@ -101,7 +101,7 @@ Legend: ✅ done+working · 🔌 built, not wired/verified · 🔨 next ·
 | Clean-clone run test (README → working loop on a fresh machine) | 🔨 | The real "is it open-source ready" test |
 | CLA / contribution-licensing decision | ⏳ human | Needed before merging the first outside PR if a paid tier is planned (lawyer) |
 | Trademark search on "Kladen" (classes 9/42) | ⏳ human | Do before announcing publicly, not after |
-| Fresh public repo from one squashed commit | 🔨 | Old repo renamed to a private archive; new `kladen` repo gets a single clean commit, created private, flipped public by the founder |
+| Fresh public repo from one squashed commit | ✅ | 2026-10-08: public at `pareshzawar/kladen` (AGPL-3.0 detected by GitHub); full prior history archived privately |
 
 Build order from here: launch items above → verify the remote loop → roadmap
 (`docs/ROADMAP.md`). Earlier order, all done: loop → price estimator → canvas edges →
