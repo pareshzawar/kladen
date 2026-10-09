@@ -100,8 +100,8 @@ Legend: ✅ done+working · 🔌 built, not wired/verified · 🔨 next ·
 | Demo accounts seeded unconditionally with known passwords | 🔨 | Gate seeding behind an env flag (e.g. `KLADEN_SEED_DEMO=1`) before telling anyone to expose it on a network |
 | Clean-clone run test (README → working loop on a fresh machine) | 🔨 | The real "is it open-source ready" test |
 | CLA / contribution-licensing decision | ⏳ human | Needed before merging the first outside PR if a paid tier is planned (lawyer) |
-| Trademark search on "Kladen" (classes 9/42) | ⏳ human | Do before announcing publicly, not after |
 | Fresh public repo from one squashed commit | ✅ | 2026-10-08: public at `pareshzawar/kladen` (AGPL-3.0 detected by GitHub); full prior history archived privately |
+| Public-repo hygiene pass | ✅ | 2026-10-08 scan: no secrets, keys, wallets, real OCIDs or client/employer names; personal paths and internal wording cleaned; stale branches removed |
 
 Build order from here: launch items above → verify the remote loop → roadmap
 (`docs/ROADMAP.md`). Earlier order, all done: loop → price estimator → canvas edges →
